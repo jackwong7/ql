@@ -12,20 +12,20 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      
+
       - name: build front and back
         run: |
           yarn install
           yarn build
           yarn build-back
-        
+
       - name: copy to static repo
-        env: 
+        env:
           # GITHUB_REPO: gitee.com/whyour/qinglong-static
-          GITHUB_REPO: github.com/whyour/qinglong-static
+          GITHUB_REPO: github.com/jackwong7/qinglong-static
         run: |
           mkdir -p static
-          cd ./static 
+          cd ./static
           cp -rf ../dist ./ && cp -rf ../build ./
           git init && git add .
           git config user.name "whyour"
