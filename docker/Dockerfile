@@ -8,7 +8,9 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     PS1="\u@\h:\w \$ " \
     QL_DIR=/ql
 WORKDIR ${QL_DIR}
-RUN apk --no-cache add -f bash \
+RUN apk update -f \
+    && apk upgrade \
+    && apk --no-cache add -f bash \
                              coreutils \
                              moreutils \
                              git \
