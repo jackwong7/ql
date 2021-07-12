@@ -45,6 +45,8 @@ define_program() {
     local p1=$1
     if [[ $p1 == *.js ]]; then
         which_program="node"
+    elif [[ $p1 == *.ts ]]; then
+        which_program="ts-node"
     elif [[ $p1 == *.py ]]; then
         which_program="python3"
     else
